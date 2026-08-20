@@ -20,6 +20,7 @@ target_sources(hhl_tinyusb_drivers INTERFACE
   ${CMAKE_CURRENT_LIST_DIR}/src/hhl_tusb_transport.c
   ${CMAKE_CURRENT_LIST_DIR}/src/hhl_tusb_strings.c
   ${CMAKE_CURRENT_LIST_DIR}/src/hhl_tusb_hid.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/hhl_tusb_lamparray.c
   ${CMAKE_CURRENT_LIST_DIR}/src/hhl_tusb_webusb.c
   ${CMAKE_CURRENT_LIST_DIR}/src/hhl_tusb_xinput.c
   ${CMAKE_CURRENT_LIST_DIR}/src/hhl_tusb_slippi.c

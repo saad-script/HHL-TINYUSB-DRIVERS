@@ -8,6 +8,7 @@
 
 #include "hhl_tusb_private.h"
 #include "hhl_tusb_transport.h"
+#include "hhl_tusb_lamparray.h"
 #include "hhl_tusb_webusb.h"
 
 #include "tusb.h"
@@ -137,11 +138,9 @@ uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_t
                                uint8_t *buffer, uint16_t reqlen)
 {
     (void)instance;
-    (void)report_id;
-    (void)report_type;
-    (void)buffer;
     (void)reqlen;
-    return 0;
+
+    return hhl_tusb_lamparray_handle_get_report(report_id, report_type, buffer);
 }
 
 void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_t len)
@@ -163,6 +162,8 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
             handler(buffer, bufsize);
         }
     }
+
+    hhl_tusb_lamparray_handle_set_report(report_id, report_type, buffer, bufsize);
 }
 
 void tud_mount_cb(void)
